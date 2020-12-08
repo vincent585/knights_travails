@@ -1,9 +1,10 @@
 class Node
-  attr_reader :coordinates
+  attr_accessor :coordinates, :adjacent_nodes, :parent
 
   def initialize(coordinates)
     @coordinates = coordinates
     @adjacent_nodes = []
+    @parent = nil
   end
 
   def add_edge(adjacent_node)
