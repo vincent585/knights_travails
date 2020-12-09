@@ -5,14 +5,6 @@ class Knight
       [1, -2], [2, -1], [-1, -2], [-2, -1] # downward moves
     ].freeze
 
-  attr_accessor :coordinates, :adjacent_nodes, :parent
-
-  def initialize(coordinates = nil)
-    @coordinates = coordinates
-    @moves = possible_moves(coordinates)
-    @children = []
-  end
-
   def possible_moves(current_position)
     possible_coordinates = []
     BASIC_MOVES.each do |move|
