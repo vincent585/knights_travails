@@ -1,26 +1,24 @@
 require_relative 'knight'
 
 class Board
-  attr_accessor :knight
+  def bfs(start, target)
+    knight = Knight.new(start)
+    discovered = [knight]
+    queue = [knight]
 
-  def initialize
-    @knight = Knight.new
-  end
-
-  def bfs(root = @knight, target)
-    discovered = [root]
-    queue = [root]
-
-    until discovered.empty?
+    until queue.empty?
       current = queue.shift
-      return 'not found' if current.nil?
       return current if current.coordinates == target
 
-      knight.adjacent_nodes.each do |node|
-        unless discovered.include?(node)
-          discovered << node
-          queue << node
-        end
+      add_to_discovered_and_queue(current, discovered, queue)
+    end
+  end
+
+  def add_to_discovered_and_queue(current_node, discovered, queue)
+    current_node.possible_moves.each do |move|
+      unless discovered.include?(move)
+        discovered << move
+        queue << move
       end
     end
   end
@@ -31,6 +29,5 @@ class Board
 end
 
 x = Board.new
-x.knight.coordinates = [0, 0]
-p x.knight.possible_moves
-p x.bfs([2, 2])
+p x.bfs([0, 0], [1, 2])
+p x.bfs([0, 0], [7, 7])
