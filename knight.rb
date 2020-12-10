@@ -1,7 +1,7 @@
 class Knight
-  attr_accessor :coordinates, :parent
+  attr_accessor :coordinates, :adjacent_nodes, :parent
 
-  def initialize(coordinates, parent = nil)
+  def initialize(coordinates = nil, parent = nil)
     @coordinates = coordinates
     @adjacent_nodes = []
     @parent = parent
@@ -25,6 +25,3 @@ class Knight
     possible_coordinates
   end
 end
-
-x = Knight.new([0, 0])
-p x.possible_moves
