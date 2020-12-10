@@ -13,7 +13,7 @@ class Board
 
     until discovered.empty?
       current = queue.shift
-      return 'Not found' if current.nil?
+      return 'not found' if current.nil?
       return current if current.coordinates == target
 
       knight.adjacent_nodes.each do |node|
@@ -23,6 +23,10 @@ class Board
         end
       end
     end
+  end
+
+  def knight_moves(start, target)
+    # TODO
   end
 end
 
