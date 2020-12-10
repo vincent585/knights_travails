@@ -7,10 +7,6 @@ class Knight
     @parent = parent
   end
 
-  def add_edge(adjacent_node)
-    @adjacent_nodes << adjacent_node
-  end
-
   BASIC_MOVES =
     [
       [1, 2], [2, 1], [-1, 2], [-2, 1], # upward moves
