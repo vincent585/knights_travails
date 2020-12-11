@@ -16,11 +16,11 @@ class Board
 
   def add_to_discovered_and_queue(current_node, discovered, queue)
     current_node.possible_moves.each do |move|
-      unless discovered.include?(move)
-        discovered << move
-        queue << move
-        move.parent = current_node
-      end
+      next if discovered.include?(move)
+
+      discovered << move
+      queue << move
+      move.parent = current_node
     end
   end
 
@@ -42,9 +42,10 @@ class Board
   end
 
   def print_path(path)
+    puts "You made it in #{path.length - 1} moves! Here's your path:"
     path.each { |node| p node.coordinates }
   end
 end
 
 x = Board.new
-x.knight_moves([0, 0], [7, 7])
+x.knight_moves([3, 3], [4, 3])
