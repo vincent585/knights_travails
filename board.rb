@@ -49,3 +49,4 @@ end
 
 x = Board.new
 x.knight_moves([3, 3], [4, 3])
+x.knight_moves([1, 2], [6, 5])
