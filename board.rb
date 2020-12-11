@@ -29,7 +29,7 @@ class Board
     return if last_node.nil?
 
     path = retrieve_parent_nodes(last_node)
-    path.each { |node| p node.coordinates }
+    print_path(path)
   end
 
   def retrieve_parent_nodes(last_node)
@@ -39,6 +39,10 @@ class Board
       last_node = last_node.parent
     end
     path
+  end
+
+  def print_path(path)
+    path.each { |node| p node.coordinates }
   end
 end
 
